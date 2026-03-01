@@ -1,0 +1,39 @@
+# Conda 虚拟环境配置文件
+# 使用方法：conda env create -f environment.yml
+# 激活环境：conda activate stain_detection
+
+name: stain_detection
+channels:
+  - defaults
+  - conda-forge
+  - pytorch
+
+dependencies:
+  # Python 版本
+  - python=3.10
+
+  # 基础数值计算和数组处理
+  - numpy>=1.21.0
+
+  # 图像处理
+  - opencv
+  - pillow>=8.3.0
+
+  # 数据可视化
+  - matplotlib>=3.4.0
+
+  # 机器学习（可选，未来扩展使用）
+  - scikit-learn>=1.0.0
+
+  # 深度学习框架（可选）
+  # PyTorch（推荐）
+  - pytorch>=2.0.0
+  - torchvision>=0.15.0
+  - cpuonly  # 如果有 GPU，可以改为 cudatoolkit
+
+  # 使用 pip 安装的包
+  - pip
+  - pip:
+      - opencv-python>=4.5.0
+      # 如果需要 TensorFlow，取消下面的注释
+      # - tensorflow>=2.12.0

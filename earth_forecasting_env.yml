@@ -1,0 +1,73 @@
+# Conda 虚拟环境配置文件 - Earth Forecasting Transformer
+# 使用方法：conda env create -f earth_forecasting_env.yml
+# 激活环境：conda activate earth_forecasting
+# 指定安装路径：conda env create -f earth_forecasting_env.yml --prefix /path/to/your/envs/earth_forecasting
+
+name: earth_forecasting
+channels:
+  - defaults
+  - conda-forge
+  - pytorch
+  - nvidia  # 如果需要 GPU 支持
+
+dependencies:
+  # Python 版本
+  - python=3.10
+
+  # 基础数值计算和数组处理
+  - numpy>=1.21.0
+  - scipy>=1.9.0
+  - pandas>=1.5.0
+
+  # 地球科学数据处理
+  - xarray>=2022.9.0
+  - netcdf4>=1.6.0
+  - h5netcdf>=1.0.0
+  - cfgrib>=0.9.10  # 用于 GRIB 文件处理
+
+  # 深度学习框架
+  - pytorch>=2.0.0
+  - torchvision>=0.15.0
+  - torchaudio>=2.0.0
+  - pytorch-cuda=11.8  # 如果有 GPU，根据 CUDA 版本调整；CPU 版本可删除此行
+
+  # Transformer 相关
+  - transformers>=4.30.0
+  - tokenizers>=0.13.0
+
+  # 数据处理和可视化
+  - matplotlib>=3.6.0
+  - seaborn>=0.12.0
+  - cartopy>=0.21.0  # 地理空间可视化
+  - pillow>=9.5.0
+
+  # 科学计算工具
+  - scikit-learn>=1.2.0
+  - jupyter>=1.0.0
+  - ipykernel>=6.22.0
+  - notebook>=6.5.0
+
+  # 工具库
+  - tqdm>=4.65.0
+  - pyyaml>=6.0
+  - requests>=2.28.0
+
+  # 使用 pip 安装的包（conda 中没有的）
+  - pip
+  - pip:
+      # 深度学习扩展
+      - einops>=0.6.0  # 张量操作
+      - timm>=0.9.0  # PyTorch 图像模型
+      
+      # 地球科学工具
+      - xarray-einstats>=0.5.0  # xarray 统计工具
+      
+      # 其他工具
+      - wandb>=0.15.0  # 实验跟踪（可选）
+      - tensorboard>=2.13.0  # TensorBoard 支持
+
+
+
+
+
+

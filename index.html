@@ -1,0 +1,54 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>衣物污渍识别标注</title>
+  <link rel="stylesheet" href="./web/style.css" />
+</head>
+<body>
+  <main class="layout">
+    <section class="panel control-panel">
+      <header class="panel-header">
+        <p class="eyebrow">Stain Annotation</p>
+        <h1>衣物污渍识别标注</h1>
+        <p class="muted">上传图片后调用识别程序，自动圈出需要标注的位置。</p>
+      </header>
+
+      <section class="control-group">
+        <label class="upload" for="imageInput">选择图片</label>
+        <input id="imageInput" type="file" accept="image/*" />
+        <button id="detectBtn" type="button" disabled>开始识别</button>
+      </section>
+
+      <p id="status" class="status">等待上传图片</p>
+
+      <div class="meta">
+        <div class="meta-item"><span>检测数量</span><strong id="count">-</strong></div>
+        <div class="meta-item"><span>图像分类</span><strong id="category">-</strong></div>
+      </div>
+
+      <section class="list-block">
+        <h2>检测框列表</h2>
+        <ul id="boxes"></ul>
+      </section>
+    </section>
+
+    <section class="panel preview-panel">
+      <div class="image-card">
+        <h2>原图预览</h2>
+        <img id="originImage" alt="原图预览" />
+      </div>
+      <div class="image-card">
+        <h2>识别圈选结果</h2>
+        <div class="result-stage">
+          <img id="markedImage" alt="识别结果图" />
+          <canvas id="boxCanvas"></canvas>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./web/app.js"></script>
+</body>
+</html>
